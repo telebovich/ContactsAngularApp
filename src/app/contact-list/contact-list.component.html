@@ -1,0 +1,57 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <h1>My Contact List</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          {{pageTitle}}
+        </div>
+        <div class="card-body">
+          <div class="form-group row">
+            <label for="filterBy" class="col-sm-1 col-form-label">Filter by</label>
+            <div class="col-sm-2">
+              <input type="text" class="form-control" id="filterBy" [(ngModel)]='ListFilter'>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              Filtered by: {{listFilter}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <table class="table" *ngIf="contacts && contacts.length > 0">
+                <thead>
+                  <th>
+                    <button class="btn btn-primary" (click)='imageClicked()'>Show profile image</button>
+                  </th>
+                  <th>Name</th>
+                  <th>Phone</th>
+                  <th>Address</th>
+                  <th>Profile filled</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let contact of filteredContacts">
+                    <td>
+                      <img [src]='contact.imageUrl' [title]='contact.firstName' 
+                        [style.width.px]='contact.imageWidth' [style.margin.px]='contact.imageMargin' />
+                    </td>
+                    <td><span>{{ contact.lastName | uppercase }}</span>,
+                      <span>{{contact.firstName}}</span></td>
+                    <td>{{contact.phone | convertToSpaces:'-'}}</td>
+                    <td>{{contact.address}}</td>
+                    <td>{{contact.profileFilled}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
