@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IContact } from './contact';
+import { ContactService } from '../shared/contact.service';
 
 @Component({
   selector: 'app-contact-list',
@@ -24,33 +25,14 @@ export class ContactListComponent implements OnInit {
   }
 
   filteredContacts: IContact[];
-  contacts: IContact[] = [
-    {
-      firstName: 'John',
-      lastName: 'Doe',
-      phone: '555-888-1234',
-      address: 'Main str. 5',
-      profileFilled: 5,
-      imageUrl: '',
-      imageWidth: 50,
-      imageMargin: 2
-    }, {
-      firstName: 'Jane',
-      lastName: 'Doe',
-      phone: '555-456-4321',
-      address: 'Main str. 6',
-      profileFilled: 4,
-      imageUrl: '',
-      imageWidth: 50,
-      imageMargin: 2
-    }
-  ];
+  contacts: IContact[] = [];
 
-  constructor() {
-    this.filteredContacts = this.contacts;
-   }
+  constructor(private contactService: ContactService) { }
 
   ngOnInit() {
+    this.contacts = this.contactService.getConacts()
+      .subscribe();
+    this.filteredContacts = this.contacts;
   }
 
   imageClicked(): void {

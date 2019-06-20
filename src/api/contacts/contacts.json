@@ -1,0 +1,21 @@
+    [
+      {
+        "firstName": "John",
+        "lastName": "Doe",
+        "phone": "555-888-1234",
+        "address": "Main str. 5",
+        "profileFilled": 5,
+        "imageUrl": "",
+        "imageWidth": 50,
+        "imageMargin": 2
+      }, {
+        "firstName": "Jane",
+        "lastName": "Doe",
+        "phone": "555-456-4321",
+        "address": "Main str. 6",
+        "profileFilled": 4,
+        "imageUrl": "",
+        "imageWidth": 50,
+        "imageMargin": 2
+      }
+    ]

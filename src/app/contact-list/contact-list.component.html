@@ -44,7 +44,7 @@
                       <span>{{contact.firstName}}</span></td>
                     <td>{{contact.phone | convertToSpaces:'-'}}</td>
                     <td>{{contact.address}}</td>
-                    <td>{{contact.profileFilled}}</td>
+                    <td><app-star [rating]='contact.profileFilled'></app-star></td>
                   </tr>
                 </tbody>
               </table>
