@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IContact } from './contact';
+import { IContact } from '../shared/contact';
 import { ContactService } from '../shared/contact.service';
 
 @Component({
@@ -30,9 +30,11 @@ export class ContactListComponent implements OnInit {
   constructor(private contactService: ContactService) { }
 
   ngOnInit() {
-    this.contacts = this.contactService.getConacts()
-      .subscribe();
-    this.filteredContacts = this.contacts;
+    this.contactService.getConacts()
+      .subscribe((result) => {
+        this.contacts = result;
+        this.filteredContacts = this.contacts;
+      });
   }
 
   imageClicked(): void {

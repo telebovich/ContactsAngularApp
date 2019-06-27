@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { IContact } from '../contact-list/contact';
+import { IContact } from './contact';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { map, tap, catchError } from 'rxjs/operators';
 
 @Injectable({
@@ -9,16 +9,16 @@ import { map, tap, catchError } from 'rxjs/operators';
 })
 export class ContactService {
 
-  private baseUrl = './api/contacts/contacts.json';
+  private baseUrl = './assets/contacts/contacts.json';
 
   constructor(private http: HttpClient) { }
 
   getConacts(): Observable<IContact[]> {
     return this.http.get<IContact[]>(this.baseUrl).pipe(
-      tap(x => x),
+      tap(x => console.log(x)),
       catchError(error => {
         console.log(error);
-        return Observable.throw(error);
+        return of(null);
       })
     );
   }

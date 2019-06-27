@@ -7,13 +7,15 @@ import { ContactListComponent } from './contact-list/contact-list.component';
 import { ConvertToSpacesPipe } from './shared/convert-to-spaces.pipe';
 import { StarComponent } from './shared/star/star.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactListComponent,
     ConvertToSpacesPipe,
-    StarComponent
+    StarComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
